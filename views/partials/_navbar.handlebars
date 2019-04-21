@@ -1,0 +1,55 @@
+<!--Area de navBar-->
+<nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+
+    <!--Area do logo salão-->
+    <div id="area-logo">
+        <a class="nav-brand" href="/">
+            <h1>Sa<span class="branco">Lão</span></h1>
+        </a>
+    </div>
+
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a href="/" class="nav-link"> Home </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="/categorias" class="nav-link"> Categorias </a>
+        </li>
+
+        <!--Area de administrador-->
+        {{#if user.eAdmin}}
+        <li class="nav-item">
+            <a href="/admin" class="nav-link ">controles</a>
+        </li>
+        <li class="nav-item">
+            <a href="/admin/categorias" class="nav-link "> Cadastro de Categorias </a>
+        </li>
+        <li class="nav-item">
+            <a href="/admin/agendas" class="nav-link ">Cadastrar postagem </a>
+        </li>
+
+        {{/if}}
+
+
+        <!--Area do Cliente-->
+        {{#if user}}
+        <li class="nav-item">
+            <a href="/usuarios/logout" class="nav-link "> Sair </a>
+        </li>
+
+        {{else}}
+        <li class="nav-item">
+            <a href="/usuarios/registro" class="nav-link "> Registro</a>
+        </li>
+        <li class="nav-item">
+            <a href="/usuarios/login" class="nav-link "> Login </a>
+        </li>
+        <li class="nav-item">
+            <a href="/usuarios/loginAdmin" class="nav-link "> Admin </a>
+        </li>
+
+        {{/if}}
+    </ul>
+</nav>

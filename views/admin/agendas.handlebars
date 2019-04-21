@@ -1,0 +1,52 @@
+<h2>Lista de postagens:</h2>
+<hr>
+<!--Botões Principais-->
+<div>
+    <a href="/admin/agendas/add"><button class="btn btn-primary">Nova Postagem</button></a>
+    <a href="/admin"><button class="btn btn-primary">Voltar</button></a>
+</div>
+
+
+<!--Card de agenda postagem-->
+{{#each agendas}}
+<div class="card mt-3">
+    <div class="card-body">
+        <h3>{{titulo}}</h4>
+            <h4>Categoria:{{categoria.nome}}</h4>
+            <h4>{{descricao}}</h4>
+            <small>{{conteudo}}</small><br>
+            <small>{{slug}}</small>
+            <br>
+            <small>Data:{{data}}</small>
+            
+
+            <div><!--Botões-->
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <a href="/admin/agendas/edit/{{_id}}"><button class="btn btn-info ">Editar
+                                        Postagem</button></a>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <form action="/admin/agendas/deletar/{{_id}}" method="POST">
+
+                                    <button type="submit" class="btn btn-danger ">Deletar Categoria</button>
+                                    <input type="hidden" name="id" value="{{_id}}">
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--Fim de Botões-->
+
+
+
+    </div><!--Fim de card-body-->
+
+</div><!--Fim de card-->
+{{else}}
+<p>Nenhuma postagem registrada</p>
+{{/each}}

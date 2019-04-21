@@ -1,0 +1,19 @@
+<h1>{{categoria.nome}}</h1>
+{{#each agendas}}
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>{{titulo}}</h4>
+        <p>{{descricao}}</p>
+        <p>{{conteudo}}</p>
+        <a href="/agenda/{{slug}}"><button class="btn btn-primary">Leia mais</button></a>
+        <hr>
+        <small>Data de Publicação: {{data}}</small>
+
+    </div>
+
+</div>
+
+{{else}}
+<h5>Nenhuma postagem</h5>
+{{/each}}

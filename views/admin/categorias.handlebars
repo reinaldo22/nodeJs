@@ -1,0 +1,52 @@
+<h2>Lista de Categorias:</h2>
+<hr>
+
+<!--Botõesrincipais P-->
+<div class="">
+    <a href="/admin/categorias/add"><button class="btn btn-primary">Nova Categoria</button></a>
+    <a href="/admin"><button class="btn btn-primary">Voltar</button></a>
+</div>
+
+<!--Card de categorias-->
+{{#each categorias}}
+<div class="card mt-4">
+    <div class="card-body ">
+        <h4>{{nome}}</h4>
+        <small>{{slug}}</small>
+        <br>
+        <small>Postado em: {{date}}</small>
+
+        <!--Botões-->
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                            <a href="/admin/categorias/edit/{{_id}}"><button class="btn btn-info ">Editar
+                                    Categoria</button> </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <form action="/admin/categorias/deletar" method="POST">
+
+                                <input type="hidden" name="id" value="{{_id}}">
+                                <button type="submit" class="btn btn-danger ">Deletar Categoria</button>
+
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div><!--Fim de Botões-->
+
+
+
+
+    </div>
+
+</div>
+{{else}}
+<h4>Nenhuma categoria resgistrada!</h4>
+
+{{/each}}
